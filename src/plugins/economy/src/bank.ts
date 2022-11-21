@@ -1,9 +1,9 @@
-import CommandManager from "@core/Manager";
+import CommandManager from "~/core/manager";
 import { Client } from "oicq";
-import { UserProfile } from "~/core/Profile";
+import { UserProfile } from "~/core/profile";
 import { IMessage } from "~/core/typings";
 import { toPercent } from "~/services/math";
-import { Profile } from './../../../core/Profile';
+import { Profile } from "../../../core/profile";
 
 /**
  * @returns void

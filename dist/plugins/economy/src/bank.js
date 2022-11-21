@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Profile_1 = require("../../../core/Profile");
+const profile_1 = require("../../../core/profile");
 /**
  * @returns void
  */
@@ -13,7 +13,7 @@ async function load(client, cm) {
         alias2: ["存款"],
         handler: async (msg) => {
             let args = ap(msg.content);
-            let p = await (0, Profile_1.UserProfile)(msg);
+            let p = await (0, profile_1.UserProfile)(msg);
             if (args.length === 0) {
                 return msg.reply("请提供你要存多少钱，或者全部(或all)!", true);
             }
@@ -68,7 +68,7 @@ async function load(client, cm) {
         alias2: ["取款"],
         handler: async (msg) => {
             let args = ap(msg.content);
-            let p = await (0, Profile_1.UserProfile)(msg);
+            let p = await (0, profile_1.UserProfile)(msg);
             if (args.length == 0)
                 return msg.reply("请提供你要取多少钱，或者全部(或all)!", true);
             if (args[1] == "全部" || args[1] == "all") {
@@ -109,8 +109,8 @@ async function load(client, cm) {
         alias2: ["转账"],
         handler: async (msg) => {
             let args = ap(msg.content);
-            let p = await (0, Profile_1.UserProfile)(msg);
-            let tp = await (0, Profile_1.UserProfile)(+args[1]);
+            let p = await (0, profile_1.UserProfile)(msg);
+            let tp = await (0, profile_1.UserProfile)(+args[1]);
             const ok = await tp.check();
             console.log(ok, tp.__prefix + args[1]);
             if (!ok)

@@ -1,4 +1,4 @@
-import Manager from "../../../core/Manager";
+import Manager from "../../../core/manager";
 import { Client, segment } from "oicq";
 import Jimp from "jimp";
 import * as Canvas from "@napi-rs/canvas";

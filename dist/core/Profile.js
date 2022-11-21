@@ -71,4 +71,4 @@ async function UserProfile(id) {
     return (await new Profile(id?.user_id ?? id, "qq:user", Schema_1.UserSchema).init());
 }
 exports.UserProfile = UserProfile;
-//# sourceMappingURL=Profile.js.map
+//# sourceMappingURL=profile.js.map

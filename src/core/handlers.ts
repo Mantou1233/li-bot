@@ -1,7 +1,7 @@
 import ms from "ms";
 import { Collection } from "@discordjs/collection";
 import { MessageCommand } from "./structure/Types";
-import { UserProfile, GroupProfile } from "./Profile";
+import { UserProfile, GroupProfile } from "./profile";
 import { ExtMessage, IMessage } from "./typings";
 import { handleXP } from "./../services/db";
 

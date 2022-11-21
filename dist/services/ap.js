@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.emojiParser = exports.flagParser = void 0;
+exports.emojiParser = exports.flagParser = exports.argumentParser = void 0;
 function argumentParser(msg, mode = false, flags = []) {
     if (mode) {
         let temp = msg.split(/ +/);
@@ -9,6 +9,7 @@ function argumentParser(msg, mode = false, flags = []) {
     }
     return [...msg.matchAll(/(?<=^| )("?)(.+?)\1(?= |$)/g)].map(match => match[0].replaceAll('"', ""));
 }
+exports.argumentParser = argumentParser;
 function flagParser(args, options) {
     const flags = {};
     for (let i = 0; i < args.length; i++) {

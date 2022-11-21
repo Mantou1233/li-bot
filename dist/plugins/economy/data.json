@@ -1,8 +1,44 @@
 {
     "translate": {
-        "bundle": "新手礼包"
+        "bundle": "新手礼包",
+        "secret_chest": "神秘宝箱",
+        "fishing_rod": "鱼竿",
+        "fish": "鱼",
+        "cod": "鳕鱼",
+        "salmon": "三文鱼",
+        "squid": "鱿鱼",
+        "golden_fish": "金鱼",
+        "octopus": "八爪鱼",
+        "rubbish": "垃圾"
     },
     "buy": {
         "secret_chest": 2000
+    },
+    "sell": {
+        "fish": 10
+    },
+    "use": {
+        "bundle": {
+            "@msg": "你打开了新手礼包，获得钓鱼竿和2000金币！",
+            "$coin": 2000,
+            "fishing_rod": 1
+        },
+        "secret_chest": {
+            "#random": [
+                {
+                    "$coin": {
+                        "#random_num": [0, 1000]
+                    },
+                    "@msg": "你获得了"
+                }
+            ]
+        }
+    },
+    "fish": {
+        "fishing_rod": {
+            "fish": 4,
+            "cod": 3,
+            "salmon": 2
+        }
     }
 }

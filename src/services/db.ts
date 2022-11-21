@@ -1,4 +1,4 @@
-import { GroupProfile, UserProfile } from "~/core/Profile";
+import { GroupProfile, UserProfile } from "~/core/profile";
 
 export function handleXP(p: Awaited<ReturnType<typeof UserProfile>>) {
 	if (p.exp[0] >= p.exp[1]) {

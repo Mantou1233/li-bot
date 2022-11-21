@@ -1,4 +1,4 @@
-import { Awaitable } from "../Utils";
+import { Awaitable } from "../utils";
 import { IExtMessage } from "../typings";
 interface RawMessageHandler {
 	from?: string;

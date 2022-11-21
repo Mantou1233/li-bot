@@ -1,6 +1,6 @@
-import CommandManager from "@core/Manager";
+import CommandManager from "~/core/manager";
 import { Client, segment } from "oicq";
-import { UserProfile } from "~/core/Profile";
+import { UserProfile } from "~/core/profile";
 import { IMessage } from "~/core/typings";
 import { ListUI } from "~/services/embed";
 import { toPercent } from "~/services/math";

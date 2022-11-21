@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const oicq_1 = require("oicq");
-const Profile_1 = require("../../../core/Profile");
+const profile_1 = require("../../../core/profile");
 /**
  * @returns void
  */
@@ -11,7 +11,7 @@ async function load(client, cm) {
         alias2: ["答问", "答题"],
         cooldown: 1000 * 30,
         handler: async (msg) => {
-            const p = await (0, Profile_1.UserProfile)(msg);
+            const p = await (0, profile_1.UserProfile)(msg);
             let meta = ["+", "-", "*"][random(0, 2)];
             let v1 = random(1, 30);
             let v2 = random(1, 20);
@@ -35,7 +35,7 @@ async function load(client, cm) {
                     oicq_1.segment.at(msg2.user_id),
                     ` 对的答案！送你${Math.floor(Math.abs(ans * 2))}金币`
                 ]);
-                let p = await (0, Profile_1.UserProfile)(msg2.user_id);
+                let p = await (0, profile_1.UserProfile)(msg2.user_id);
                 p.coin += Math.floor(Math.abs(ans * 2));
                 p.save();
             }
@@ -44,7 +44,7 @@ async function load(client, cm) {
                     oicq_1.segment.at(msg2.user_id),
                     ` 错的答案！答案是${ans}！扣你${Math.abs(ans)}金币！`
                 ]);
-                let p = await (0, Profile_1.UserProfile)(msg2.user_id);
+                let p = await (0, profile_1.UserProfile)(msg2.user_id);
                 p.coin -= Math.abs(ans);
                 p.save();
                 return;

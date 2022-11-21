@@ -4,11 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.botMain = void 0;
+// preload globals
 require("./services/random");
 require("./services/ap");
-const PluginLoader_1 = __importDefault(require("./core/PluginLoader"));
+require("./services/td");
+require("./services/inv");
+const loader_1 = __importDefault(require("./core/loader"));
 const handlers_1 = require("./core/handlers");
-const Manager_1 = __importDefault(require("./core/Manager"));
+const manager_1 = __importDefault(require("./core/manager"));
 const ms_1 = __importDefault(require("ms"));
 const { client: _client, db } = storage;
 console.log("Starting nico...");
@@ -28,8 +31,8 @@ async function botMain() {
             await db.add("sys:time", 1);
             console.log(`connected to mongo! DB ping: ${require("ms")(Date.now() - _tmp)}, s: ${await db.get("sys:time")}`);
         }
-        client.manager = new Manager_1.default(client);
-        client.loader = new PluginLoader_1.default(client);
+        client.manager = new manager_1.default(client);
+        client.loader = new loader_1.default(client);
         await client.loader.load();
         // Register for a single guild
         // await client.guilds.cache

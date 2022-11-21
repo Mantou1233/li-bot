@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Profile_1 = require("../../../core/Profile");
+const profile_1 = require("../../../core/profile");
 const hitokoto_1 = __importDefault(require("../../../services/hitokoto"));
 const ms_1 = __importDefault(require("ms"));
 const db_1 = require("../../../services/db");
@@ -15,8 +15,8 @@ async function load(client, cm) {
         command: "sign",
         alias2: ["签到"],
         handler: async (msg) => {
-            const p = await (0, Profile_1.UserProfile)(msg);
-            const g = await (0, Profile_1.GroupProfile)(msg);
+            const p = await (0, profile_1.UserProfile)(msg);
+            const g = await (0, profile_1.GroupProfile)(msg);
             const dp = new Date(p.lastSign ?? Date.now());
             const dg = new Date(g.lastSign ?? Date.now());
             const dn = new Date();
@@ -73,8 +73,8 @@ ${(await (0, hitokoto_1.default)()).hitokoto}
     cm.register({
         command: "rsst",
         handler: async (msg) => {
-            const p = await (0, Profile_1.UserProfile)(msg);
-            const g = await (0, Profile_1.GroupProfile)(msg);
+            const p = await (0, profile_1.UserProfile)(msg);
+            const g = await (0, profile_1.GroupProfile)(msg);
             const dp = new Date(p.lastSign ?? Date.now());
             const dg = new Date(g.lastSign ?? Date.now());
             const dn = new Date();
@@ -82,7 +82,7 @@ ${(await (0, hitokoto_1.default)()).hitokoto}
             g.myTestyData++;
             await p.save();
             await g.save();
-            const g2 = await (0, Profile_1.GroupProfile)(msg);
+            const g2 = await (0, profile_1.GroupProfile)(msg);
             msg.reply(`${g2.myTestyData}`);
         }
     });

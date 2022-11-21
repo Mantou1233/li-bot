@@ -1,5 +1,5 @@
 
-import { Copy } from "../Utils";
+import { Copy } from "../utils";
 
 const UserSchema = {
 	coin: 1000,

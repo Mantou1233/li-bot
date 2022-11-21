@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const oicq_1 = require("oicq");
-const Profile_1 = require("../../../core/Profile");
+const profile_1 = require("../../../core/profile");
 const embed_1 = require("../../../services/embed");
 const math_1 = require("../../../services/math");
 const { db } = storage;
@@ -14,7 +14,7 @@ async function load(client, cm) {
         alias: ["bal"],
         alias2: ["查询"],
         handler: async (msg) => {
-            const p = await (0, Profile_1.UserProfile)(msg);
+            const p = await (0, profile_1.UserProfile)(msg);
             msg.reply(`账户信息如下：
 个人财富：${p.coin}金币
 签到次数：${p.signCount}次

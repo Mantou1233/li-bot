@@ -1,8 +1,17 @@
-import CommandManager from "@core/Manager";
+import CommandManager from "~/core/manager";
 import QuickLoader, { cook } from "@services/QuickLoader";
 
 let ql = new QuickLoader({
-	include: ["basic", "sign", "question", "bank", "shop"],
+	include: [
+		"basic",
+		"sign",
+		"question",
+		"bank",
+		"shop",
+		"fish",
+		"inventory",
+		"use"
+	],
 	pattern: [cook(__dirname) + "/*.js"]
 });
 /**

@@ -26,4 +26,4 @@ class Manager {
     }
 }
 exports.default = Manager;
-//# sourceMappingURL=Manager.js.map
+//# sourceMappingURL=manager.js.map

@@ -1,4 +1,4 @@
-function argumentParser(msg, mode = false, flags = []) {
+export function argumentParser(msg, mode = false, flags = []) {
 	if (mode) {
 		let temp = msg.split(/ +/);
 		temp.shift();

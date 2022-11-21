@@ -1,10 +1,13 @@
+// preload globals
 import "@services/random";
 import "@services/ap";
+import "@services/td";
+import "@services/inv";
 
-import PluginLoader from "@core/PluginLoader";
+import PluginLoader from "~/core/loader";
 import { CommandHandler } from "@core/handlers";
 import { Client } from "oicq";
-import Manager from "./core/Manager";
+import Manager from "./core/manager";
 import ms from "ms";
 
 const { client: _client, db } = storage;

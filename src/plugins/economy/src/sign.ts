@@ -1,6 +1,6 @@
-import CommandManager from "@core/Manager";
+import CommandManager from "~/core/manager";
 import { Client } from "oicq";
-import { GroupProfile, UserProfile } from "~/core/Profile";
+import { GroupProfile, UserProfile } from "~/core/profile";
 import { IMessage } from "~/core/typings";
 import hitokoto from "~/services/hitokoto";
 import ms from "ms";

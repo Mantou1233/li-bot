@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { Client } from "oicq";
 import fg from "fast-glob";
-import Manager from "./Manager";
-import { read } from "fs";
+
 const outpath = "../../";
 const log = (times: number, message: string): void =>
 	console.log(`${"  ".repeat(times)}-> ${message}`);
+//const log = (_, message) => storage.client.logger.info(message)
 class PluginLoader {
 	client: Client;
 	loadedList: string[];

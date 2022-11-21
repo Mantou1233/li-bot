@@ -1,6 +1,6 @@
-import Manager from "../../../core/Manager";
+import Manager from "../../../core/manager";
 
-import { GroupProfile, UserProfile } from "~/core/Profile";
+import { GroupProfile, UserProfile } from "~/core/profile";
 import { Client, segment } from "oicq";
 import ms from "ms";
 import hitokoto from "~/services/hitokoto";

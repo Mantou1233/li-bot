@@ -1,6 +1,6 @@
-import CommandManager from "@core/Manager";
+import CommandManager from "~/core/manager";
 import { Client, GroupMessageEvent, segment } from "oicq";
-import { UserProfile } from "~/core/Profile";
+import { UserProfile } from "~/core/profile";
 import { IMessage } from "~/core/typings";
 /**
  * @returns void

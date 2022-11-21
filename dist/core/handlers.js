@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommandHandler = void 0;
 const ms_1 = __importDefault(require("ms"));
 const collection_1 = require("@discordjs/collection");
-const Profile_1 = require("./Profile");
+const profile_1 = require("./profile");
 const db_1 = require("../services/db");
 const Cooldown = new collection_1.Collection();
 const client = storage.client;
@@ -22,9 +22,9 @@ async function CommandHandler(msg) {
         .filter(val => ["text", "at"].includes(val.type))
         .map((val) => val.qq ?? val.text)
         .join("");
-    const p = await (0, Profile_1.UserProfile)(msg);
+    const p = await (0, profile_1.UserProfile)(msg);
     await p.checkAndUpdate();
-    const g = await (0, Profile_1.GroupProfile)(msg);
+    const g = await (0, profile_1.GroupProfile)(msg);
     await g.checkAndUpdate();
     p.exp[0] += random(0, 3);
     (0, db_1.handleXP)(p);
