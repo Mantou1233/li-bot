@@ -31,7 +31,7 @@ const db = new quickmongo_1.Database(process.env.MONGO, {
     collectionName: "qq"
 });
 const client = (0, oicq_1.createClient)(parseInt(process.env.QQ), {
-    platform: 5
+    platform: 4
 });
 client.on("system.online", () => {
     console.log("Logged in!");
