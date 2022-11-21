@@ -1,0 +1,33 @@
+{
+	"dependencies": {
+		"@discordjs/collection": "^1.2.0",
+		"@napi-rs/canvas": "^0.1.30",
+		"axios": "^1.1.3",
+		"dotenv": "^16.0.3",
+		"jimp": "^0.16.2",
+		"ms": "^2.1.3",
+		"oicq": "^2.3.1",
+		"pet-pet-gif": "^1.0.9",
+		"quickmongo": "^5.2.0",
+		"reflect-metadata": "^0.1.13"
+	},
+	"devDependencies": {
+		"@types/ms": "^0.7.31",
+		"@types/node": "^18.11.9",
+		"resolve-tspaths": "^0.8.3",
+		"tsc-watch": "^5.0.3",
+		"typescript": "^5.0.0-dev.20221102"
+	},
+	"name": "isect3",
+	"version": "0.0.0",
+	"description": "initial commit",
+	"main": "dist/index.js",
+	"author": "xiandnico",
+	"license": "MIT",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"main": "node dist/index",
+		"build": "tsc && resolve-tspaths",
+		"watch": "tsc-watch --onSuccess resolve-tspaths"
+	}
+}
