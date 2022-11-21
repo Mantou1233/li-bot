@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const oicq_1 = require("oicq");
 const client = (0, oicq_1.createClient)(2186103712, {
-    platform: 2
+    platform: 1
 });
 client.on("system.online", async () => {
     console.log("Logged in!");
