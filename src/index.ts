@@ -8,7 +8,7 @@ const db = new Database(process.env.MONGO!, {
 	collectionName: "qq"
 });
 const client = createClient(parseInt(process.env.QQ!), {
-	platform: 4
+	platform: 1
 });
 
 client.on("system.online", () => {

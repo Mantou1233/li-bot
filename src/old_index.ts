@@ -3,7 +3,7 @@ import { createClient } from "oicq";
 import { IMessage } from "./core/typings";
 
 const client = createClient(2186103712, {
-	platform: 2
+	platform: 1
 });
 
 client.on("system.online", async () => {
