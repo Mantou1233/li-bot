@@ -8,7 +8,7 @@ const db = new Database(process.env.MONGO!, {
 	collectionName: "qq"
 });
 const client = createClient(parseInt(process.env.QQ!), {
-	platform: 1
+	platform: 3
 });
 
 client.on("system.online", () => {
@@ -38,6 +38,9 @@ if (process.argv[2] == "qr") {
 	client
 		.on("system.login.slider", function (e) {
 			console.log("输入ticket：");
+			console.log(
+				e.url.replace("ssl.captcha.qq.com", "txhelper.glitch.me")
+			);
 			process.stdin.once("data", ticket =>
 				this.submitSlider(String(ticket).trim())
 			);

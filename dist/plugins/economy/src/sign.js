@@ -20,19 +20,17 @@ async function load(client, cm) {
             const dp = new Date(p.lastSign ?? Date.now());
             const dg = new Date(g.lastSign ?? Date.now());
             const dn = new Date();
+            const dt = new Date(dn);
+            dt.setDate(dt.getDate() + 1);
+            dt.setHours(0, 0, 0, 0);
             if (dp.getDay() == dn.getDay()) {
-                const today = new Date();
-                const tomorrow = new Date(today);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                tomorrow.setHours(0, 0, 0, 0);
-                msg.reply(`需要等待${(0, ms_1.default)(tomorrow.getTime() - today.getTime())}才能下次签到！`);
+                msg.reply(`需要等待${(0, ms_1.default)(dt.getTime() - dn.getTime())}才能下次签到！`);
                 return;
             }
             if (dg.getDay() !== dn.getDay()) {
-                console.log("1");
                 g.signCountToday = 0;
             }
-            if (dp.getDay() == dn.getDay()) {
+            if (dp.getDay() == dt.getDay()) {
                 p.signCombo++;
             }
             else {

@@ -31,7 +31,7 @@ const db = new quickmongo_1.Database(process.env.MONGO, {
     collectionName: "qq"
 });
 const client = (0, oicq_1.createClient)(parseInt(process.env.QQ), {
-    platform: 1
+    platform: 3
 });
 client.on("system.online", () => {
     console.log("Logged in!");
@@ -58,6 +58,7 @@ else {
     client
         .on("system.login.slider", function (e) {
         console.log("输入ticket：");
+        console.log(e.url.replace("ssl.captcha.qq.com", "txhelper.glitch.me"));
         process.stdin.once("data", ticket => this.submitSlider(String(ticket).trim()));
     })
         .login(process.env.PASSWORD);
