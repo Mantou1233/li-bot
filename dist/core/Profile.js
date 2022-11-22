@@ -54,10 +54,7 @@ class Profile {
         return this.save();
     }
     async save() {
-        const data = JSON.parse(JSON.stringify(this));
-        delete data["__id"];
-        delete data["__schema"];
-        delete data["__prefix"];
+        const data = this.raw;
         return (void (await db.set(`${this.__prefix}${this.__id}`, data)) ?? this);
     }
     get raw() {
