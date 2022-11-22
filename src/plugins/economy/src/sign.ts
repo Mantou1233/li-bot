@@ -89,25 +89,6 @@ ${(await hitokoto()).hitokoto}
 			await g.save();
 		}
 	});
-	cm.register({
-		command: "rsst",
-		handler: async (msg: IMessage) => {
-			const p = await UserProfile(msg);
-			const g = await GroupProfile(msg);
-
-			const dp = new Date(p.lastSign ?? Date.now());
-			const dg = new Date(g.lastSign ?? Date.now());
-			const dn = new Date();
-			msg.reply(`${g.__prefix}${g.__id}`);
-
-			g.myTestyData++;
-			await p.save();
-			await g.save();
-
-			const g2 = await GroupProfile(msg);
-			msg.reply(`${g2.myTestyData}`);
-		}
-	});
 }
 
 module.exports = load;

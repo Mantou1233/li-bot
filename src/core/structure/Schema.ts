@@ -21,8 +21,7 @@ const UserSchema = {
 const GroupSchema = {
 	signCount: 0,
 	signCountToday: 0,
-	lastSign: 0,
-	myTestyData: 0
+	lastSign: 0
 } satisfies GroupSchema;
 
 interface UserSchema {
@@ -46,7 +45,6 @@ interface GroupSchema {
 	signCount: number
 	signCountToday: number
 	lastSign: number
-	myTestyData: number
 }
 
 export { UserSchema, GroupSchema };

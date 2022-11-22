@@ -15,11 +15,14 @@
         "secret_chest": 2000
     },
     "sell": {
-        "fish": 10
+        "fish": 10,
+        "cod": 20,
+        "salmon": 50,
+        "squid": 100
     },
     "use": {
         "bundle": {
-            "@msg": "你打开了新手礼包，获得钓鱼竿和2000金币！",
+            "@msg": "你打开了新手礼包，获得钓鱼竿和%$coin%金币！",
             "$coin": 2000,
             "fishing_rod": 1
         },
@@ -27,9 +30,9 @@
             "#random": [
                 {
                     "$coin": {
-                        "#random_num": [0, 1000]
+                        "#random_num": [0, 5000]
                     },
-                    "@msg": "你获得了"
+                    "@msg": "你获得了%$coin%金币~!!!"
                 }
             ]
         }

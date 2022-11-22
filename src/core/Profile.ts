@@ -48,6 +48,11 @@ export class Profile<
 		if (!this.__schema) return false;
 		let raw = this.raw;
 		Object.assign(this, this.__schema, raw);
+		const schemaKeys = Object.keys(this.__schema);
+		for (let key of Object.keys(this.raw)) {
+			if (schemaKeys.includes(key)) continue;
+			delete this[key];
+		}
 		return this.save();
 	}
 

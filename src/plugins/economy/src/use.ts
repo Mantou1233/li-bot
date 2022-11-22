@@ -18,13 +18,13 @@ async function load(client: Client, cm: CommandManager) {
 			const id = inv.get(args[1], Object.keys(data.use));
 			if (!id) return msg.reply("这个物品好像不能用... 换个试试?", true);
 			if (!p.inv[id]) return msg.reply("你好像没有这东西...", true);
-			const parsed = parseTree(data.use[id]);
+			const parsed = parseTree({ ...data.use[id] });
 			let remove = true;
 			for (let [key, value] of Object.entries(parsed) as [string, any]) {
 				if (key == "$coin") p.coin += value;
 
 				if (key == "$exp") p.exp += value;
-				if (key == "#noAutoRemove") remove = value;
+				if (key == "@noAutoRemove") remove = value;
 
 				if (key.startsWith("$rm_"))
 					inv.remove(p, key.replace("$rm_"), value);

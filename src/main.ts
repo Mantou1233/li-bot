@@ -6,22 +6,20 @@ import "@services/inv";
 
 import PluginLoader from "~/core/loader";
 import { CommandHandler } from "@core/handlers";
-import { Client } from "oicq";
 import Manager from "./core/manager";
 import ms from "ms";
 
-const { client: _client, db } = storage;
+const { client, db } = storage;
 
 console.log("Starting nico...");
 
-const main = async client => {
+const main = async () => {
 	console.log(`[miraicle] logged in as ${client.uin}!`);
 	await botMain();
 };
-main(_client);
+main();
 //Main Function
 export async function botMain() {
-	const client = storage.client as Client;
 	try {
 		// Load Plugins
 		if (!db.ready) {

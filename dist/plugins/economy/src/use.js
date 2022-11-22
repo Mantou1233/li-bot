@@ -22,14 +22,14 @@ async function load(client, cm) {
                 return msg.reply("这个物品好像不能用... 换个试试?", true);
             if (!p.inv[id])
                 return msg.reply("你好像没有这东西...", true);
-            const parsed = (0, get_1.parseTree)(data_json_1.default.use[id]);
+            const parsed = (0, get_1.parseTree)({ ...data_json_1.default.use[id] });
             let remove = true;
             for (let [key, value] of Object.entries(parsed)) {
                 if (key == "$coin")
                     p.coin += value;
                 if (key == "$exp")
                     p.exp += value;
-                if (key == "#noAutoRemove")
+                if (key == "@noAutoRemove")
                     remove = value;
                 if (key.startsWith("$rm_"))
                     inv.remove(p, key.replace("$rm_"), value);

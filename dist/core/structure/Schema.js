@@ -20,8 +20,7 @@ exports.UserSchema = UserSchema;
 const GroupSchema = {
     signCount: 0,
     signCountToday: 0,
-    lastSign: 0,
-    myTestyData: 0
+    lastSign: 0
 };
 exports.GroupSchema = GroupSchema;
 //# sourceMappingURL=Schema.js.map

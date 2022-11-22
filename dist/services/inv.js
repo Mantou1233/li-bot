@@ -7,22 +7,22 @@ exports.InventoryManager = void 0;
 const data_json_1 = __importDefault(require("../plugins/economy/data.json"));
 class InventoryManager {
     add(p, id, count = 1) {
-        if (p.inv[id])
+        if (p.inv?.[id])
             p.inv[id] += count;
         else
             p.inv[id] = count;
     }
     remove(p, id, count = 1) {
         p.inv[id] -= count;
-        if (p.inv[id] < 1)
-            delete p.inv[id];
+        if (p.inv?.[id] < 1)
+            delete p.inv?.[id];
     }
     delete(p, id) {
-        if (p.inv[id])
-            delete p.inv[id];
+        if (p.inv?.[id])
+            delete p.inv?.[id];
     }
     has(p, id, count = 1) {
-        if (p.inv[id] && p.inv[id] >= count)
+        if (p.inv?.[id] && p.inv?.[id] >= count)
             return true;
         return false;
     }

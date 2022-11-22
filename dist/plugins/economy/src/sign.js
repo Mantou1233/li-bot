@@ -70,22 +70,6 @@ ${(await (0, hitokoto_1.default)()).hitokoto}
             await g.save();
         }
     });
-    cm.register({
-        command: "rsst",
-        handler: async (msg) => {
-            const p = await (0, profile_1.UserProfile)(msg);
-            const g = await (0, profile_1.GroupProfile)(msg);
-            const dp = new Date(p.lastSign ?? Date.now());
-            const dg = new Date(g.lastSign ?? Date.now());
-            const dn = new Date();
-            msg.reply(`${g.__prefix}${g.__id}`);
-            g.myTestyData++;
-            await p.save();
-            await g.save();
-            const g2 = await (0, profile_1.GroupProfile)(msg);
-            msg.reply(`${g2.myTestyData}`);
-        }
-    });
 }
 module.exports = load;
 //# sourceMappingURL=sign.js.map

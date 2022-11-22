@@ -1,19 +1,19 @@
 import data from "~/plugins/economy/data.json";
 
 export class InventoryManager {
-	add(p, id, count = 1) {
-		if (p.inv[id]) p.inv[id] += count;
+	add(p, id: string, count = 1) {
+		if (p.inv?.[id]) p.inv[id] += count;
 		else p.inv[id] = count;
 	}
 	remove(p, id, count = 1) {
 		p.inv[id] -= count;
-		if (p.inv[id] < 1) delete p.inv[id];
+		if (p.inv?.[id] < 1) delete p.inv?.[id];
 	}
 	delete(p, id) {
-		if (p.inv[id]) delete p.inv[id];
+		if (p.inv?.[id]) delete p.inv?.[id];
 	}
 	has(p, id, count = 1) {
-		if (p.inv[id] && p.inv[id] >= count) return true;
+		if (p.inv?.[id] && p.inv?.[id] >= count) return true;
 		return false;
 	}
 	get(id, list: string[] = []) {
