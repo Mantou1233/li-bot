@@ -31,7 +31,7 @@ const db = new quickmongo_1.Database(process.env.MONGO, {
     collectionName: "qq"
 });
 const client = (0, oicq_1.createClient)(parseInt(process.env.QQ), {
-    platform: 3
+    platform: 2
 });
 client.on("system.online", () => {
     console.log("Logged in!");
@@ -68,7 +68,7 @@ globalThis.storage = {
     client,
     db,
     config: {
-        groups: [952303234, 627048885, 764575578]
+        groups: [952303234, 627048885, 764575578, 236172566]
     }
 };
 //# sourceMappingURL=index.js.map

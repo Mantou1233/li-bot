@@ -8,21 +8,32 @@ const UserSchema = {
 	bankAmount: 5000,
 	signCombo: 0,
 	signCount: 0,
-	lastSign: 0, 
+	lastSign: 0,
 	exp: [0, 75, 9],
 	level: 1,
 	inv: {
 		bundle: 1
 	},
+	planting: "none",
+	fields: 1,
 	chatCount: 0
 } satisfies UserSchema;
 
 
 const GroupSchema = {
+	chatCount: 0,
 	signCount: 0,
 	signCountToday: 0,
 	lastSign: 0
 } satisfies GroupSchema;
+
+const SystemSchema = {
+	chatCount: 0,
+	signCount: 0,
+	dailyShopItems: [],
+	lastDailyShopRefresh: 0
+} satisfies SystemSchema;
+
 
 interface UserSchema {
 	coin: number,
@@ -38,13 +49,29 @@ interface UserSchema {
 		//[K in keyof Items]: number
 		[k: string]: number
 	},
+	planting: {
+		plant: string,
+		lastPlant: number,
+	} | "none",
+	fields: number,
 	chatCount: number
 }
 
 interface GroupSchema {
+	chatCount: number
 	signCount: number
 	signCountToday: number
 	lastSign: number
 }
 
-export { UserSchema, GroupSchema };
+interface SystemSchema {
+	chatCount: number
+	signCount: number,
+	dailyShopItems: {
+		id: string,
+		count: number
+	}[]
+	lastDailyShopRefresh: number,
+}
+
+export { UserSchema, GroupSchema, SystemSchema };

@@ -8,7 +8,7 @@ const db = new Database(process.env.MONGO!, {
 	collectionName: "qq"
 });
 const client = createClient(parseInt(process.env.QQ!), {
-	platform: 4
+	platform: 2
 });
 
 client.on("system.online", () => {
@@ -54,6 +54,6 @@ globalThis.storage = {
 	client,
 	db,
 	config: {
-		groups: [952303234, 627048885, 764575578]
+		groups: [952303234, 627048885, 764575578, 236172566]
 	}
 };

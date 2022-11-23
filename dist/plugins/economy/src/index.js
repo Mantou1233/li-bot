@@ -33,7 +33,8 @@ let ql = new QuickLoader_1.default({
         "shop",
         "fish",
         "inventory",
-        "use"
+        "use",
+        "farm"
     ],
     pattern: [(0, QuickLoader_1.cook)(__dirname) + "/*.js"]
 });

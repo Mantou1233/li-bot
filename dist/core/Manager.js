@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const collection_1 = require("@discordjs/collection");
 class Manager {
     nowLoading = -1;
+    category;
     client;
     commands = new collection_1.Collection();
     constructor(client) {
@@ -17,9 +18,7 @@ class Manager {
                 disabled: false,
                 hidden: false,
                 from: this.nowLoading,
-                category: "Basic",
-                desc: "",
-                usage: `%p${ctx.command}`,
+                category: this.category ?? "基础",
                 ...ctx
             });
         }

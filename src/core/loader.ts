@@ -46,6 +46,7 @@ class PluginLoader {
 				throw new Error("Plugin Names should be unique!");
 			this.loadedNames.push(pluginName);
 			this.client.manager.nowLoading = pluginName;
+			this.client.manager.category = temp.category;
 			let entry = await import(
 				`${outpath}${plugin}${temp.entry.replace(".js", "")}`
 			);

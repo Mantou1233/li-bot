@@ -7,7 +7,7 @@ const profile_1 = require("../../../core/profile");
 async function load(client, cm) {
     cm.register({
         command: "deposit",
-        category: "经济",
+        usage: "存款 <数量>",
         desc: "从钱包里存款到银行",
         alias: ["dep"],
         alias2: ["存款"],
@@ -105,7 +105,7 @@ async function load(client, cm) {
         command: "pay",
         category: "经济",
         desc: "付钱给别人。",
-        usage: "%psay <内容>",
+        usage: "%ppay <艾特> <金额>",
         alias2: ["转账"],
         handler: async (msg) => {
             let args = ap(msg.content);

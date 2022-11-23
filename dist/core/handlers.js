@@ -26,10 +26,9 @@ async function CommandHandler(msg) {
     await p.checkAndUpdate();
     const g = await (0, profile_1.GroupProfile)(msg);
     await g.checkAndUpdate();
-    p.exp[0] += random(0, 3);
-    (0, db_1.handleXP)(p);
-    p.chatCount++;
-    p.save();
+    const s = await (0, profile_1.SystemProfile)();
+    await s.checkAndUpdate();
+    (0, db_1.processProfiles)(msg, { p, g, s });
     prefix = process.env.PREFIX;
     const mappings = client.manager.commands;
     const isp = msg.content.startsWith(prefix);

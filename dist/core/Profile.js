@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserProfile = exports.GroupProfile = exports.Profile = void 0;
+exports.UserProfile = exports.GroupProfile = exports.SystemProfile = exports.Profile = void 0;
 const Schema_1 = require("./structure/Schema");
 const { db } = storage;
 class Profile {
@@ -66,6 +66,10 @@ class Profile {
     }
 }
 exports.Profile = Profile;
+async function SystemProfile() {
+    return (await new Profile("sys", "qq:system", Schema_1.SystemSchema).init());
+}
+exports.SystemProfile = SystemProfile;
 async function GroupProfile(id) {
     return (await new Profile(id?.group_id ?? id, "qq:group", Schema_1.GroupSchema).init());
 }

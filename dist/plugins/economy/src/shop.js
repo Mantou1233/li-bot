@@ -78,6 +78,27 @@ async function load(client, cm) {
             p.save();
         }
     });
+    cm.register({
+        command: "buy",
+        alias2: ["购买"],
+        desc: "从商店购买物品",
+        usage: "购买 <物品>",
+        handler: async (msg) => {
+            const args = ap(msg.content, true);
+            const p = await (0, profile_1.UserProfile)(msg);
+            if (!args[1])
+                msg.reply("请提供你要买什么物品！", true);
+            const id = inv.get(args[1], Object.keys(data_json_1.default.buy));
+            if (!id)
+                return msg.reply("商店好像不卖这个东西...", true);
+            if (p.coin < data_json_1.default.buy[id])
+                return msg.reply("你好像不够钱...", true);
+            p.coin -= data_json_1.default.buy[id]?.value ?? data_json_1.default.buy[id];
+            inv.add(p, id, 1);
+            msg.reply([oicq_1.segment.at(msg.user_id), ` 你成功购买了${td(id)}!`], true);
+            p.save();
+        }
+    });
 }
 module.exports = load;
 //# sourceMappingURL=shop.js.map

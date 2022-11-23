@@ -1,9 +1,9 @@
 import ms from "ms";
 import { Collection } from "@discordjs/collection";
 import { MessageCommand } from "./structure/Types";
-import { UserProfile, GroupProfile } from "./profile";
+import { UserProfile, GroupProfile, SystemProfile } from "./profile";
 import { ExtMessage, IMessage } from "./typings";
-import { handleXP } from "./../services/db";
+import { processProfiles } from "./../services/db";
 
 const Cooldown = new Collection<number, number>();
 const client = storage.client;
@@ -25,10 +25,10 @@ async function CommandHandler(msg: IMessage & ExtMessage) {
 	const g = await GroupProfile(msg);
 	await g.checkAndUpdate();
 
-	p.exp[0] += random(0, 3);
-	handleXP(p);
-	p.chatCount++;
-	p.save();
+	const s = await SystemProfile();
+	await s.checkAndUpdate();
+
+	processProfiles(msg, { p, g, s });
 
 	prefix = process.env.PREFIX as string;
 	const mappings = client.manager.commands as Collection<

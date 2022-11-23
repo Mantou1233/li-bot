@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GroupSchema = exports.UserSchema = void 0;
+exports.SystemSchema = exports.GroupSchema = exports.UserSchema = void 0;
 const UserSchema = {
     coin: 1000,
     coinFactor: 0,
@@ -14,13 +14,23 @@ const UserSchema = {
     inv: {
         bundle: 1
     },
+    planting: "none",
+    fields: 1,
     chatCount: 0
 };
 exports.UserSchema = UserSchema;
 const GroupSchema = {
+    chatCount: 0,
     signCount: 0,
     signCountToday: 0,
     lastSign: 0
 };
 exports.GroupSchema = GroupSchema;
+const SystemSchema = {
+    chatCount: 0,
+    signCount: 0,
+    dailyShopItems: [],
+    lastDailyShopRefresh: 0
+};
+exports.SystemSchema = SystemSchema;
 //# sourceMappingURL=Schema.js.map

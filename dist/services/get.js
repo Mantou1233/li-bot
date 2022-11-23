@@ -5,6 +5,9 @@ const isObject = obj => {
     return Object.prototype.toString.call(obj) === "[object Object]";
 };
 function parseTree(data) {
+    if (Array.isArray(data) && data.length == 2)
+        if (!isNaN(data[0]) && !isNaN(data[1]))
+            return random(data[0], data[1]);
     if (!isObject(data))
         return data;
     for (let [key, value] of Object.entries(data)) {
@@ -12,12 +15,6 @@ function parseTree(data) {
             data = parseTree(value[random(0, value["length"] - 1)]);
             break;
         }
-        else if (key === "#random_num") {
-            data = random(value[0], value[1]);
-            break;
-        }
-        if (key === "$coin")
-            console.log;
         data[key] = parseTree(value);
     }
     if (data["@msg"]) {

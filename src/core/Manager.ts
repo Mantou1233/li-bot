@@ -8,6 +8,7 @@ type ToSignature<T extends Record<string, any[]>> = {
 
 class Manager {
 	nowLoading: string | number = -1;
+	category: string;
 	client: Client;
 	commands = new Collection<string, MessageCommand>();
 
@@ -25,9 +26,7 @@ class Manager {
 				disabled: false,
 				hidden: false,
 				from: this.nowLoading as unknown as string,
-				category: "Basic",
-				desc: "",
-				usage: `%p${ctx.command}`,
+				category: this.category ?? "基础",
 				...ctx
 			});
 		}

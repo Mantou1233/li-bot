@@ -9,7 +9,7 @@ async function load(client, cm) {
         command: "inventory",
         category: "经济",
         desc: "查看背包。",
-        usage: "%psay <内容>",
+        usage: "背包",
         alias: ["inv"],
         alias2: ["背包"],
         handler: async (msg) => {

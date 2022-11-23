@@ -14,6 +14,8 @@ async function load(client, cm) {
     cm.register({
         command: "use",
         alias2: ["使用"],
+        desc: "使用一个物品",
+        usage: "使用 <物品>",
         handler: async (msg) => {
             const args = ap(msg.content, true);
             const p = await (0, profile_1.UserProfile)(msg);
@@ -22,7 +24,9 @@ async function load(client, cm) {
                 return msg.reply("这个物品好像不能用... 换个试试?", true);
             if (!p.inv[id])
                 return msg.reply("你好像没有这东西...", true);
-            const parsed = (0, get_1.parseTree)({ ...data_json_1.default.use[id] });
+            const parsed = (0, get_1.parseTree)({
+                ...JSON.parse(JSON.stringify(data_json_1.default.use[id]))
+            });
             let remove = true;
             for (let [key, value] of Object.entries(parsed)) {
                 if (key == "$coin")

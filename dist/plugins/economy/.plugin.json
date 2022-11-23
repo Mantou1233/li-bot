@@ -1,4 +1,5 @@
 {
     "name": "economy",
-    "entry": "src/index.js"
+    "entry": "src/index.js",
+    "category": "经济"
 }

@@ -1,4 +1,4 @@
-import { GroupSchema, UserSchema } from "./structure/Schema";
+import { GroupSchema, SystemSchema, UserSchema } from "./structure/Schema";
 const { db } = storage;
 
 export class Profile<
@@ -72,14 +72,28 @@ export class Profile<
 	}
 }
 
+export async function SystemProfile(): Promise<
+	Profile<SystemSchema> & { [K in keyof SystemSchema]: SystemSchema[K] }
+> {
+	return (await new Profile<SystemSchema>(
+		"sys",
+		"qq:system",
+		SystemSchema
+	).init()) as unknown as Profile<SystemSchema> & {
+		[K in keyof SystemSchema]: SystemSchema[K];
+	};
+}
+
 export async function GroupProfile(
 	id
-): Promise<Profile<UserSchema> & { [K in keyof GroupSchema]: GroupSchema[K] }> {
+): Promise<
+	Profile<GroupSchema> & { [K in keyof GroupSchema]: GroupSchema[K] }
+> {
 	return (await new Profile<GroupSchema>(
 		id?.group_id ?? id,
 		"qq:group",
 		GroupSchema
-	).init()) as unknown as Profile<UserSchema> & {
+	).init()) as unknown as Profile<GroupSchema> & {
 		[K in keyof GroupSchema]: GroupSchema[K];
 	};
 }

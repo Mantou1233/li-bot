@@ -1,4 +1,5 @@
 {
 	"name": "basic",
-	"entry": "src/index.js"
+	"entry": "src/index.js",
+	"category": "基础"
 }

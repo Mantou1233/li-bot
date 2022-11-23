@@ -9,12 +9,27 @@
 		"squid": "鱿鱼",
 		"golden_fish": "金鱼",
 		"octopus": "八爪鱼",
-		"rubbish": "垃圾"
+		"rubbish": "垃圾",
+		"pumpkin_seed": "南瓜种子",
+		"melon_seed": "南瓜种子",
+		"iron_ingot": "铁锭",
+		"gold_ingot": "金锭",
+		"diamond": "钻石",
+		"iron_block": "铁块",
+		"gold_block": "金块",
+		"diamond_block": "钻石块",
+		"glow_berries": "发光莓果",
+		"diamond_berries": "钻石莓果",
+		"iron_pickaxe": "铁镐",
+		"diamond_pickaxe": "钻石镐",
+		"enchanted_golden_apple": "附魔金苹果"
 	},
 	"buy": {
-		"secret_chest": 2000
+		"secret_chest": 750,
+		"pumpkin_seed": 100
 	},
 	"sell": {
+		"rubbish": 5,
 		"fish": 10,
 		"cod": 20,
 		"salmon": 50,
@@ -29,10 +44,32 @@
 		"secret_chest": {
 			"#random": [
 				{
-					"$coin": {
-						"#random_num": [0, 5000]
-					},
-					"@msg": "你获得了%$coin%金币~!!!"
+					"$coin": [1500, 3000],
+					"@msg": "你获得了%$coin%金币！"
+				},
+				{
+					"iron_pickaxe": 1,
+					"@msg": "你获得了%iron_pickaxe%个铁镐！"
+				},
+				{
+					"diamond_block": 1,
+					"@msg": "你获得了%diamond_block%个钻石块！！"
+				},
+				{
+					"iron_ingot": [1, 5],
+					"@msg": "你获得了%iron_ingot%个铁锭！"
+				},
+				{
+					"glow_berries": [3, 6],
+					"@msg": "你找到了%glow_berries%个发光梅子。这也可以种欸！"
+				},
+				{
+					"melon_seed": [1, 3],
+					"@msg": "你找到了%melon_seed%个西瓜种子。可以种欸！"
+				},
+				{
+					"enchanted_golden_apple": 1,
+					"@msg": "你找到了%enchanted_golden_apple%个附魔金苹果！！但是好像没有什么卵用。"
 				}
 			]
 		}
@@ -42,6 +79,29 @@
 			"fish": 4,
 			"cod": 3,
 			"salmon": 2
+		}
+	},
+	"plant": {
+		"melon_seed": {
+			"time": "2h",
+			"loots": {
+				"melon_seed": [1, 3],
+				"melon": [1, 2]
+			}
+		},
+		"pumpkin_seed": {
+			"time": "2h",
+			"loots": {
+				"pumpkin_seed": [1, 3],
+				"pumpkin": [1, 2]
+			}
+		},
+		"glow_berries": {
+			"time": "10m",
+			"loots": {
+				"glow_berries": [3, 7],
+				"diamond_berries": [-2, 3]
+			}
 		}
 	}
 }

@@ -1,4 +1,5 @@
 {
     "name": "image",
-    "entry": "src/index.js"
+    "entry": "src/index.js",
+    "category": "图片生成"
 }

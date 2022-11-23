@@ -78,6 +78,30 @@ async function load(client: Client, cm: CommandManager) {
 			p.save();
 		}
 	});
+	cm.register({
+		command: "buy",
+		alias2: ["购买"],
+		desc: "从商店购买物品",
+		usage: "购买 <物品>",
+		handler: async msg => {
+			const args = ap(msg.content, true);
+			const p = await UserProfile(msg);
+
+			if (!args[1]) msg.reply("请提供你要买什么物品！", true);
+
+			const id = inv.get(args[1], Object.keys(data.buy));
+			if (!id) return msg.reply("商店好像不卖这个东西...", true);
+			if (p.coin < data.buy[id])
+				return msg.reply("你好像不够钱...", true);
+			p.coin -= data.buy[id]?.value ?? data.buy[id];
+			inv.add(p, id, 1);
+			msg.reply(
+				[segment.at(msg.user_id), ` 你成功购买了${td(id)}!`],
+				true
+			);
+			p.save();
+		}
+	});
 }
 
 module.exports = load;

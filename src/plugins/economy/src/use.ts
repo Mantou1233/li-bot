@@ -12,13 +12,17 @@ async function load(client: Client, cm: CommandManager) {
 	cm.register({
 		command: "use",
 		alias2: ["使用"],
+		desc: "使用一个物品",
+		usage: "使用 <物品>",
 		handler: async msg => {
 			const args = ap(msg.content, true);
 			const p = await UserProfile(msg);
 			const id = inv.get(args[1], Object.keys(data.use));
 			if (!id) return msg.reply("这个物品好像不能用... 换个试试?", true);
 			if (!p.inv[id]) return msg.reply("你好像没有这东西...", true);
-			const parsed = parseTree({ ...data.use[id] });
+			const parsed = parseTree({
+				...JSON.parse(JSON.stringify(data.use[id]))
+			});
 			let remove = true;
 			for (let [key, value] of Object.entries(parsed) as [string, any]) {
 				if (key == "$coin") p.coin += value;
