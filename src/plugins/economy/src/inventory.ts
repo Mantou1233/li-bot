@@ -23,5 +23,15 @@ async function load(client: Client, cm: Manager) {
 			);
 		}
 	});
+	cm.register({
+		command: "giveall",
+		category: "经济",
+		desc: "",
+		hidden: true,
+		handler: async msg => {
+			const p = await UserProfile(msg);
+			const { db } = storage;
+		}
+	});
 }
 module.exports = load;

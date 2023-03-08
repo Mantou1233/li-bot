@@ -6,6 +6,10 @@ import { Client } from "oicq";
 import { Database } from "quickmongo";
 
 declare global {
+
+	interface Date {
+		toTSVString(): `${number}-${number}-${number} ${number}:${number}:${number}.${number}`;
+	}
 	/**
 	 * random.
 	 */
@@ -50,4 +54,5 @@ declare module "oicq" {
 		loader: PluginLoader;
 	}
 }
+
 export {};

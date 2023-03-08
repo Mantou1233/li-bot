@@ -20,16 +20,25 @@ export function processProfiles(
 	{
 		p,
 		g,
-		s
+		s,
+		using
 	}: {
 		p: Awaited<ReturnType<typeof UserProfile>>;
 		g: Awaited<ReturnType<typeof GroupProfile>>;
 		s: Awaited<ReturnType<typeof SystemProfile>>;
+		using: boolean;
 	}
 ) {
 	p.exp[0] += random(0, 3);
 	handleXP(p);
 
+	if (!p.help && using) {
+		msg.reply(
+			'欢迎使用本bot! 新人可以先输入"使用 新手礼包"领取新手礼包，然后签到，之后可以去钓鱼！使用"菜单"查看指令列表。',
+			true
+		);
+		p.help = true;
+	}
 	p.chatCount++;
 	g.chatCount++;
 	s.chatCount++;
@@ -44,8 +53,7 @@ export function processProfiles(
 	}
 
 	if (p.planting !== "none") {
-
-		p.planting.lastPlant
+		p.planting.lastPlant;
 		if (getPlantingTimestamp(p) <= Date.now()) {
 			const parsed = parseTree({
 				...JSON.parse(

@@ -20,7 +20,7 @@ export class InventoryManager {
 		if (list.length == 0) return;
 		let obj: Record<string, string[]> = {};
 		for (let ea of list) {
-			obj[ea] = [ea, td(ea) ?? -1].filter(v => (v as any) !== -1);
+			obj[ea] = [ea, td(ea) ?? -1, ...data.alias[ea] ?? []].filter(v => (v as any) !== -1);
 			obj[ea] = [...new Set(obj[ea])];
 		}
 

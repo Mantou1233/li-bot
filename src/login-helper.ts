@@ -3,7 +3,7 @@ import d from "dotenv";
 d.config();
 
 const client = createClient(parseInt(process.env.QQ!), {
-	platform: 1
+	platform: 2
 });
 
 client.on("system.online", async () => {

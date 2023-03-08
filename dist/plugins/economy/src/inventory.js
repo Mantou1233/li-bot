@@ -17,6 +17,16 @@ async function load(client, cm) {
             msg.reply(Object.entries(p.inv).reduce((i, [k, v]) => i + `${td(k)} x${v}\n`, "你的背包：\n"));
         }
     });
+    cm.register({
+        command: "giveall",
+        category: "经济",
+        desc: "",
+        hidden: true,
+        handler: async (msg) => {
+            const p = await (0, profile_1.UserProfile)(msg);
+            const { db } = storage;
+        }
+    });
 }
 module.exports = load;
 //# sourceMappingURL=inventory.js.map

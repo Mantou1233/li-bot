@@ -28,7 +28,6 @@ async function CommandHandler(msg) {
     await g.checkAndUpdate();
     const s = await (0, profile_1.SystemProfile)();
     await s.checkAndUpdate();
-    (0, db_1.processProfiles)(msg, { p, g, s });
     prefix = process.env.PREFIX;
     const mappings = client.manager.commands;
     const isp = msg.content.startsWith(prefix);
@@ -36,10 +35,12 @@ async function CommandHandler(msg) {
     const command = mappings.find(cmd => ((cmd.command === launch || (cmd.alias ?? []).includes(launch)) &&
         isp) ||
         (cmd.alias2 ?? []).includes(launch));
-    if (!command)
+    if (command && !command?.disabled)
+        (0, db_1.processProfiles)(msg, { p, g, s, using: true });
+    else {
+        (0, db_1.processProfiles)(msg, { p, g, s, using: false });
         return;
-    if (command.disabled)
-        return;
+    }
     if (command.cooldown && Cooldown.has(msg.user_id))
         return msg.reply(`cooldown: ${(0, ms_1.default)(Cooldown.get(msg.user_id) - Date.now())}`);
     try {

@@ -7,7 +7,7 @@ const oicq_1 = require("oicq");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const client = (0, oicq_1.createClient)(parseInt(process.env.QQ), {
-    platform: 1
+    platform: 2
 });
 client.on("system.online", async () => {
     console.log("Logged in!");

@@ -42,5 +42,36 @@ export interface ExtMessage {
 	content: string;
 }
 
+export interface JSONShareable extends Partial<PartialJSONShareable> {
+	app: string;
+	view: string;
+	ver: string;
+	prompt: string;
+	meta: any;
+	config?: Partial<{
+		type: "normal" | string;
+		forward: 0 | 1;
+		autosize: 0 | 1;
+		showSender: 0 | 1;
+		ctime: string;
+		token: string;
+	}>;
+}
+
+interface PartialJSONShareable {
+	appID: string;
+	actionData: string;
+	actionData_A: string;
+
+	desc: string;
+	text: string;
+
+	sourceName: string;
+	sourceUrl: string;
+	sourceAd: string;
+
+	extraApps: any[];
+}
+
 export type IMessage = IGroupMessage & GroupMessageEvent;
 export type IExtMessage = IGroupMessage & ExtMessage & GroupMessageEvent;

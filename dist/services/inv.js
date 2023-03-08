@@ -31,7 +31,7 @@ class InventoryManager {
             return;
         let obj = {};
         for (let ea of list) {
-            obj[ea] = [ea, td(ea) ?? -1].filter(v => v !== -1);
+            obj[ea] = [ea, td(ea) ?? -1, ...data_json_1.default.alias[ea] ?? []].filter(v => v !== -1);
             obj[ea] = [...new Set(obj[ea])];
         }
         for (let [key, lit] of Object.entries(obj)) {

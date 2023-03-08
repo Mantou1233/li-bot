@@ -99,6 +99,41 @@ async function load(client, cm) {
             p.save();
         }
     });
+    cm.register({
+        command: "dailyshop",
+        alias2: ["每日商店"],
+        handler: async (msg) => {
+            const page = 1;
+            const entries = Object.entries(data_json_1.default.buy);
+            msg.reply([
+                `星月之友*3 单价：3*钻石莓果，还剩6个了
+蓝色蝴蝶*2 单价：8*天星，还剩1个了
+冥*1 单价：1*死，还剩2个了
+whiter*4 单价：1*钻石块，还剩5个了
+西瓜*4 单价：9*鱼，还剩3个了
+没了 用"每日商店 购买 <物品>"购买`
+                // segment.json(
+                // 	await ListUI({
+                // 		data: Array(10)
+                // 			.fill(undefined)
+                // 			.map((v, i) => ({
+                // 				title: entries[i + (page - 1) * 10]
+                // 					? `$${entries[i + (page - 1) * 10][1]}`
+                // 					: " ",
+                // 				value: entries[i + (page - 1) * 10]
+                // 					? `${td(entries[i + (page - 1) * 10][0])}`
+                // 					: " "
+                // 			})) as any,
+                // 		title: "商店",
+                // 		name: "璃",
+                // 		footer: '使用"每日商店 购买 <物品>"购买指定物品！',
+                // 		page: [page, 1],
+                // 		prompt: "商店"
+                // 	})
+                // )
+            ]);
+        }
+    });
 }
 module.exports = load;
 //# sourceMappingURL=shop.js.map

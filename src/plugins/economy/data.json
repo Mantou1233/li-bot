@@ -3,6 +3,7 @@
 		"bundle": "新手礼包",
 		"secret_chest": "神秘宝箱",
 		"fishing_rod": "鱼竿",
+		"better_fishing_rod": "更好的鱼竿",
 		"fish": "鱼",
 		"cod": "鳕鱼",
 		"salmon": "三文鱼",
@@ -11,7 +12,9 @@
 		"octopus": "八爪鱼",
 		"rubbish": "垃圾",
 		"pumpkin_seed": "南瓜种子",
-		"melon_seed": "南瓜种子",
+		"melon_seed": "西瓜种子",
+		"pumpkin": "南瓜",
+		"melon": "西瓜",
 		"iron_ingot": "铁锭",
 		"gold_ingot": "金锭",
 		"diamond": "钻石",
@@ -24,16 +27,23 @@
 		"diamond_pickaxe": "钻石镐",
 		"enchanted_golden_apple": "附魔金苹果"
 	},
+	"alias": {
+		"glow_berries": ["莓果"],
+		"pumpkin_seed": ["南瓜"],
+		"melon_seed": ["西瓜"]
+	},
 	"buy": {
 		"secret_chest": 750,
-		"pumpkin_seed": 100
+		"pumpkin_seed": 100,
+		"better_fishing_rod": 5000
 	},
 	"sell": {
 		"rubbish": 5,
 		"fish": 10,
 		"cod": 20,
 		"salmon": 50,
-		"squid": 100
+		"squid": 100,
+		"diamond_berries": 200
 	},
 	"use": {
 		"bundle": {
@@ -79,6 +89,22 @@
 			"fish": 4,
 			"cod": 3,
 			"salmon": 2
+		},
+		"better_fishing_rod": {
+			"fish": 7,
+			"cod": 5,
+			"salmon": 4,
+			"squid": 1
+		}
+	},
+	"craft": {
+		"stick": {
+			"wood": 2,
+			"$count": 2
+		},
+		"better_fishing_rod": {
+			"stick": 2,
+			"string": 2
 		}
 	},
 	"plant": {
@@ -97,7 +123,7 @@
 			}
 		},
 		"glow_berries": {
-			"time": "10m",
+			"time": "20m",
 			"loots": {
 				"glow_berries": [3, 7],
 				"diamond_berries": [-2, 3]

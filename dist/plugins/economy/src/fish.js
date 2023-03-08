@@ -23,15 +23,25 @@ async function init(client, cm) {
         cooldown: 2 * 1000,
         handler: async (msg) => {
             try {
-                let args = ap(msg.content);
+                let [_, rod] = ap(msg.content);
                 const p = await (0, profile_1.UserProfile)(msg);
-                let counts = {};
-                let loots = data_json_1.default.fish[Object.keys(data_json_1.default.fish).find(k => {
-                    if (p.inv[k])
-                        return true;
-                }) || ""];
-                if (!loots)
+                if (!rod) {
+                    rod =
+                        Object.keys(data_json_1.default.fish)
+                            .reverse()
+                            .find(k => {
+                            if (p.inv[k])
+                                return true;
+                        }) || "none";
+                }
+                else {
+                    rod =
+                        inv.get(rod, Object.keys(data_json_1.default.fish).reverse()) ||
+                            "none";
+                }
+                if (rod == "none")
                     return msg.reply('你没有鱼竿！可以用 "使用 新手礼包" 获得鱼竿。');
+                let loots = data_json_1.default.fish[rod] ?? {};
                 let text = "";
                 let result = {};
                 for (let [k, v] of Object.entries(loots)) {

@@ -19,9 +19,13 @@ function handleXP(p) {
         handleXP(p);
 }
 exports.handleXP = handleXP;
-function processProfiles(msg, { p, g, s }) {
+function processProfiles(msg, { p, g, s, using }) {
     p.exp[0] += random(0, 3);
     handleXP(p);
+    if (!p.help && using) {
+        msg.reply('欢迎使用本bot! 新人可以先输入"使用 新手礼包"领取新手礼包，然后签到，之后可以去钓鱼！使用"菜单"查看指令列表。', true);
+        p.help = true;
+    }
     p.chatCount++;
     g.chatCount++;
     s.chatCount++;

@@ -28,8 +28,6 @@ async function CommandHandler(msg: IMessage & ExtMessage) {
 	const s = await SystemProfile();
 	await s.checkAndUpdate();
 
-	processProfiles(msg, { p, g, s });
-
 	prefix = process.env.PREFIX as string;
 	const mappings = client.manager.commands as Collection<
 		string,
@@ -43,8 +41,12 @@ async function CommandHandler(msg: IMessage & ExtMessage) {
 				isp) ||
 			(cmd.alias2 ?? []).includes(launch)
 	) as MessageCommand;
-	if (!command) return;
-	if (command.disabled) return;
+	if (command && !command?.disabled)
+		processProfiles(msg, { p, g, s, using: true });
+	else {
+		processProfiles(msg, { p, g, s, using: false });
+		return;
+	}
 	if (command.cooldown && Cooldown.has(msg.user_id))
 		return msg.reply(
 			`cooldown: ${ms(Cooldown.get(msg.user_id)! - Date.now())}`

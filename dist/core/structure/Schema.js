@@ -15,7 +15,7 @@ const UserSchema = {
         bundle: 1
     },
     planting: "none",
-    fields: 1,
+    help: false,
     chatCount: 0
 };
 exports.UserSchema = UserSchema;

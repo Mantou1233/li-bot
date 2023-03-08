@@ -15,7 +15,7 @@ const UserSchema = {
 		bundle: 1
 	},
 	planting: "none",
-	fields: 1,
+	help: false,
 	chatCount: 0
 } satisfies UserSchema;
 
@@ -53,7 +53,7 @@ interface UserSchema {
 		plant: string,
 		lastPlant: number,
 	} | "none",
-	fields: number,
+	help: boolean,
 	chatCount: number
 }
 
